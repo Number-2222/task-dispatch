@@ -49,7 +49,7 @@ npx skills@latest add mattpocock/skills   # 先装底层流程 skill（可选但
 
 **如果你没用过 mattpocock 的那些 skill（grill-me、wayfinder、to-spec 等），建议直接下载完整包**：20 件套一次装齐，无需单独安装依赖，开箱即用。
 
-在 [Releases](https://github.com/aizinan/task-dispatch/releases) 下载 `task-dispatch-complete.zip`，解压后将所有 skill 目录放入你的 skills 目录即可。
+在 [Releases](https://github.com/Number-2222/task-dispatch/releases) 下载 `task-dispatch-complete.zip`，解压后将所有 skill 目录放入你的 skills 目录即可。
 
 ## 🚀 怎么用
 
@@ -68,7 +68,7 @@ npx skills@latest add mattpocock/skills   # 先装底层流程 skill（可选但
 
 ## 🧪 测试
 
-判档逻辑经过三轮测试迭代：10 个模拟用户、50 个单轮回归用例（正例 30 / 反例 12 / 交互 8）、4 个多轮完整执行链场景，全部有独立评审。测试集与结果见 [docs/](https://github.com/aizinan/task-dispatch/tree/master/docs)。
+判档逻辑经过三轮测试迭代：10 个模拟用户、50 个单轮回归用例（正例 30 / 反例 12 / 交互 8）、4 个多轮完整执行链场景，全部有独立评审。测试集与结果见 [docs/](https://github.com/Number-2222/task-dispatch/tree/main/docs)。
 
 ## 📄 License
 
