@@ -47,7 +47,9 @@ npx skills@latest add mattpocock/skills   # 先装底层流程 skill（可选但
 
 ### 完整包
 
-20 件套完整包（含全部依赖 skill）可在 [Releases](https://github.com/aizinan/task-dispatch/releases) 下载。
+**如果你没用过 mattpocock 的那些 skill（grill-me、wayfinder、to-spec 等），建议直接下载完整包**：20 件套一次装齐，无需单独安装依赖，开箱即用。
+
+在 [Releases](https://github.com/aizinan/task-dispatch/releases) 下载 `task-dispatch-complete.zip`，解压后将所有 skill 目录放入你的 skills 目录即可。
 
 ## 🚀 怎么用
 
