@@ -8,7 +8,7 @@
 
 mattpocock/skills（GitHub 20 万 star）把工程流程拆成了模块化 skill：grill-with-docs 对齐需求、to-spec 落规格、to-tickets 拆任务。它很好，但有个门槛：**你得自己知道什么情况该调哪个 skill。**
 
-task-dispatch 在它前面加了一层自动判断。底层流程是 Matt 那套，判档这一层是它没有的。
+task-dispatch 在它前面加了一层自动判断。底层流程是 Matt 那套，档位判断这一层是它没有的。
 
 ## 🎯 四档判断
 
@@ -23,7 +23,7 @@ task-dispatch 在它前面加了一层自动判断。底层流程是 Matt 那套
 
 - ⚖️ **意图层必问，实现层默认值**：方向、目标、硬约束一定对齐；风格、比例这些能改的细节自己定
 - 🛡️ **事实绝不编造**：数据、名称、价格这类只有用户知道的信息，查不到就标"待补"，不编
-- 🎮 **三句话逃生通道**：随时说"直接做 / 先拷问下我 / 走完整流程"，判档立即让位
+- 🎮 **三句话逃生通道**：随时说"直接做 / 先拷问下我 / 走完整流程"，判断档位立即让位
 - 🧩 **依赖自检**：没有安装任何 mattpocock skill 也能独立工作，有则用完整流程
 - 📋 **任务档案**：完成的任务记入 tasks.md，跨会话可回溯，中断任务留痕
 
@@ -64,11 +64,11 @@ npx skills@latest add mattpocock/skills   # 先装底层流程 skill（可选但
 
 ## 🔗 依赖与来源
 
-底层流程基于 [mattpocock/skills](https://github.com/mattpocock/skills)（MIT License）。本仓库只包含 task-dispatch 本体，判档层为原创。
+底层流程基于 [mattpocock/skills](https://github.com/mattpocock/skills)（MIT License）。本仓库只包含 task-dispatch 本体，档位判断层为原创。
 
 ## 🧪 测试
 
-判档逻辑经过三轮测试迭代：10 个模拟用户、50 个单轮回归用例（正例 30 / 反例 12 / 交互 8）、4 个多轮完整执行链场景，全部有独立评审。测试集与结果见 [docs/](https://github.com/Number-2222/task-dispatch/tree/main/docs)。
+判断档位逻辑经过三轮测试迭代：10 个模拟用户、50 个单轮回归用例（正例 30 / 反例 12 / 交互 8）、4 个多轮完整执行链场景，全部有独立评审。测试集与结果见 [docs/](https://github.com/Number-2222/task-dispatch/tree/main/docs)。
 
 ## 📄 License
 
