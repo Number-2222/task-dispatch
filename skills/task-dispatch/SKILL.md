@@ -39,11 +39,13 @@ description: 任务复杂度分析器与流程路由器。当用户给出一个�
 1. `C:\Users\AAA\.hanako\skills\grill-me\SKILL.md` 或项目级 `.claude/skills/grill-me/SKILL.md`
 2. `C:\Users\AAA\.hanako\skills\grilling\SKILL.md` 或项目级 `.claude/skills/grilling/SKILL.md`
 
-判断档位为大型档时追加读取：
+判断档位为大型档且**材料完备**时，追加读取：
 
 3. `C:\Users\AAA\.hanako\skills\grill-with-docs\SKILL.md`（有代码库时）
 4. `C:\Users\AAA\.hanako\skills\to-spec\SKILL.md`
 5. `C:\Users\AAA\.hanako\skills\to-tickets\SKILL.md`
+
+大型档**初步想法**时不追加读取（先用 1、2 拷问落材料）；**材料落定、用户确认后，再补读 3、4、5 进入完整流程**。
 
 判断档位为模糊巨大档，或大型档没想法（方案没定、处处是雾）时追加读取：
 
@@ -131,7 +133,7 @@ description: 任务复杂度分析器与流程路由器。当用户给出一个�
 
 ### 大型档（建一整套）
 - 材料完备（有成文材料可读取）→ 走完整流程：grill-with-docs → to-spec → to-tickets → 逐张执行。**第一步：读取并确认材料**（需求文档/设计稿/清单，先确认材料真实存在，快速过一遍对齐理解、补缺口）。材料完备不等于细节已定，带材料拷问仍然发生（更快，对象是材料）
-- 初步想法（用户说定了但没材料）→ **先通过拷问把脑内想法落成需求文档，用户确认后进入完整流程**，不直接开工，也不因为找不到材料就卡住
+- 初步想法（用户说定了但没材料）→ **先通过拷问把脑内想法落成需求文档**（用 grill-me/grilling，一次一问）。**材料落定、用户确认后，补读 grill-with-docs/SKILL.md、to-spec/SKILL.md、to-tickets/SKILL.md，进入完整流程**（规格化 → 拆任务 → 逐张执行）。不直接开工，也不因为找不到材料就卡住
 - 没想法（方案没定、处处是雾）→ 改走 wayfinder：**读取 wayfinder/SKILL.md，按其流程建决策地图**（`.scratch/<任务名>/map.md`，产出决策不产出交付物，地图清晰后并入 to-spec）；文件读不到时按上面这句的精神用本地文件建地图
 - 涉及设计或界面（"长什么样""怎么表现"是核心问题）→ 无论走哪条路，先出廉价原型拿反馈，再定规格
 - 内容拷问要快、要克制。一次一个问题，问完就动。grill-with-docs 同样按意图层/实现层原则：只问方向性决策，实现层细节直接默认值，不把拷问变成马拉松
