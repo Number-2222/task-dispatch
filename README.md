@@ -42,31 +42,30 @@ task-dispatch 在它前面加了一层自动判断：收到任务先判断属于
 
 ## 📦 安装
 
-### 一行命令安装（Claude Code / Codex / OpenCode 等）
+task-dispatch 是前置判断层，配套的原版流程 skill（grill-me、grilling、wayfinder、to-spec 等）是它的执行层。**没有配套 skill 也能独立工作**（用内嵌简化流程），但装了完整版体验更好。两种装法按你的情况选：
+
+### 方式一：完整包（推荐，最省事）
+
+没装过 mattpocock/skills 的，直接下完整包，20 个 skill 一次装齐，开箱即用：
+
+1. 到 [Releases](https://github.com/Number-2222/task-dispatch/releases) 下载 `task-dispatch-complete.zip`
+2. 解压，把里面的 skill 目录全部放进你的 skills 目录（Claude Code 是 `~/.claude/skills/`，Codex 是 `~/.codex/skills/`）
+3. 完成
+
+### 方式二：npx 命令（需要 Node ≥ 22.20）
 
 ```bash
-npx skills add Number-2222/task-dispatch
+npx skills add mattpocock/skills          # 配套流程 skill（grill-me、wayfinder 等）
+npx skills add Number-2222/task-dispatch  # task-dispatch 本体
 ```
 
-如 CLI 提示选择 skill，选 `task-dispatch` 即可（需要 Node ≥ 22.20）。
+如 CLI 提示选择 skill，分别选对应名字即可。
 
-**如果你没用过 mattpocock 的那些 skill（grill-me、wayfinder、to-spec 等），建议直接下载完整包**：20 件套一次装齐，无需单独安装依赖，开箱即用。
+### 手动复制
 
-在 [Releases](https://github.com/Number-2222/task-dispatch/releases) 下载 `task-dispatch-complete.zip`，解压后将所有 skill 目录放入你的 skills 目录即可。
+把仓库 `skills/task-dispatch/` 目录复制到你的 agent skills 目录（Claude Code：`.claude/skills/`）。
 
-### Claude Code 等支持 skills 的 agent
-
-```bash
-npx skills@latest add mattpocock/skills   # 先装底层流程 skill（可选但推荐）
-```
-
-然后把 `skills/task-dispatch/` 复制到项目的 `.claude/skills/` 下。
-
-### 其他支持 skills 的 agent
-
-把 `skills/task-dispatch/` 复制到对应 agent 的 skills 目录即可（安装方式与 Claude Code 类似，或直接用 `npx skills add` 安装）。
-
-> **安装时若出现安全提示**：这是 skill 设计使然（它会读取环境中的配套开源 skill 规范并按其执行，读不到则用内嵌简化流程）。确认信任后继续即可。
+> **安装时若出现安全提示**：这是 skill 设计使然（它会读取环境中的配套开源 skill 规范并按其执行，读不到则用内嵌简化流程，还会提示你可安装完整包）。确认信任后继续即可。
 
 ## 🚀 怎么用
 
