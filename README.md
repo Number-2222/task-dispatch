@@ -8,7 +8,7 @@
 
 基于 **mattpocock/skills**（GitHub 20 万+ star 的开源流程库）做的前置判断层。Matt 那套体系把工程流程拆成了模块化 skill：grill-me / grill-with-docs 对齐需求、to-spec 落规格、to-tickets 拆任务、wayfinder 建地图。它很好，但有个门槛：**你得自己知道什么情况该调哪个 skill。**
 
-task-dispatch 在它前面加了一层自动判断：收到任务先判断属于哪一档、该对齐到多细，然后自动调用对应的原版 skill 走流程。**底层流程全部来自 Matt 的开源体系（MIT），本仓库只包含 task-dispatch 本体**，判断档位层与对齐颗粒度设计为原创。
+task-dispatch 在它前面加了一层自动判断：收到任务先判断属于哪一档、该对齐到多细，然后自动调用对应的原版 skill 走流程。**底层流程全部来自 Matt 的开源体系（MIT），本仓库只包含 task-dispatch 本体**，只是在他前面加了一层自动判断，解决"不知道什么时候该用哪个 skill"这个小问题。
 
 ## ✨ 核心哲学
 
