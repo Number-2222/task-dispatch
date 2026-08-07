@@ -4,6 +4,12 @@
 
 用 AI 干活，最烦两种事：改个标题它问东问西 😤，做个系统它又闷头乱干 😵。task-dispatch 让助手自己掂量轻重——**你只管说要什么，它自己决定该对齐多少、怎么干。**
 
+## 🔗 它是什么
+
+基于 **mattpocock/skills**（GitHub 20 万+ star 的开源流程库）做的前置判断层。Matt 那套体系把工程流程拆成了模块化 skill：grill-me / grill-with-docs 对齐需求、to-spec 落规格、to-tickets 拆任务、wayfinder 建地图。它很好，但有个门槛：**你得自己知道什么情况该调哪个 skill。**
+
+task-dispatch 在它前面加了一层自动判断：收到任务先判断属于哪一档、该对齐到多细，然后自动调用对应的原版 skill 走流程。**底层流程全部来自 Matt 的开源体系（MIT），本仓库只包含 task-dispatch 本体**，判断档位层与对齐颗粒度设计为原创。
+
 ## ✨ 核心哲学
 
 > **没有真正的清晰，只有不同程度的模糊。对齐（拷问）的目的，是把模糊信息捋到能动手的程度，因此它是常规档及以上任务的核心动作。** 对齐什么、对齐多细，取决于当前状态：有材料 → 对齐材料本身；有想法 → 对齐脑内想法（拷问落成材料）；没想法 → 对齐方向。
@@ -73,13 +79,9 @@ npx skills@latest add mattpocock/skills   # 先装底层流程 skill（可选但
 
 判断错了也不怕：一句"直接做"或"走完整流程"，它马上听你的。
 
-## 🔗 依赖与来源
-
-底层流程基于 [mattpocock/skills](https://github.com/mattpocock/skills)（MIT License）。本仓库只包含 task-dispatch 本体，判断档位层与对齐颗粒度设计为原创。
-
 ## 🧪 测试
 
-- **判档逻辑**：50 用例回归（30 正例 / 12 反例 / 8 交互）+ 4 个多轮完整执行链，独立评审，测试集见 [docs/](https://github.com/Number-2222/task-dispatch/tree/main/docs)
+- **判断档位逻辑**：50 用例回归（30 正例 / 12 反例 / 8 交互）+ 4 个多轮完整执行链，独立评审，测试集见 [docs/](https://github.com/Number-2222/task-dispatch/tree/main/docs)
 - **行为验证**：真实会话验证判断档位后按序读取配套原版 skill（grill-me/grilling/wayfinder），拷问一次一问、带推荐答案，全部达标
 
 ## 📄 License
