@@ -34,24 +34,30 @@ description: 任务复杂度分析器与流程路由器。当用户给出一个�
 
 ## 执行前置（必须完成，否则不开始任何档位动作）
 
-调用 read 工具，按顺序读取以下文件（如存在），读取后按对应内容执行：
+调用 read 工具，按顺序读取以下文件（如存在），读取后按对应内容执行。查找顺序：先按文件名字在项目级 `.claude/skills/`、`.agents/skills/` 和当前环境的 skills 目录下找（不用找绝对路径，用 skill 名定位即可）：
 
-1. `C:\Users\AAA\.hanako\skills\grill-me\SKILL.md` 或项目级 `.claude/skills/grill-me/SKILL.md`
-2. `C:\Users\AAA\.hanako\skills\grilling\SKILL.md` 或项目级 `.claude/skills/grilling/SKILL.md`
+1. `grill-me/SKILL.md`
+2. `grilling/SKILL.md`
 
 判断档位为大型档且**材料完备**时，追加读取：
 
-3. `C:\Users\AAA\.hanako\skills\grill-with-docs\SKILL.md`（有代码库时）
-4. `C:\Users\AAA\.hanako\skills\to-spec\SKILL.md`
-5. `C:\Users\AAA\.hanako\skills\to-tickets\SKILL.md`
+3. `grill-with-docs/SKILL.md`（有代码库时）
+4. `to-spec/SKILL.md`
+5. `to-tickets/SKILL.md`
 
 大型档**初步想法**时不追加读取（先用 1、2 拷问落材料）；**材料落定、用户确认后，再补读 3、4、5 进入完整流程**。
 
 判断档位为模糊巨大档，或大型档没想法（方案没定、处处是雾）时追加读取：
 
-6. `C:\Users\AAA\.hanako\skills\wayfinder\SKILL.md`
+6. `wayfinder/SKILL.md`
 
-读不到的跳过（对应档位的兜底见下）。**读到原版文件的，按原版流程执行，本文件不包含任何流程实现**。
+**读取失败处理**：上述文件有读不到的（文件缺失、环境里没装、路径找不到），不硬撑也不卡住，按对应档位的内嵌兜底继续（见各档位）。**快速档不提示；常规档及以上，读不到该读的文件时，向用户说明一次**，说人话不提 skill 名：
+
+"我这边没找到对应的规则文件，我先按精简方式继续，效果会打点折扣。如果你装了完整包或想让我换完整版，说一声就行。"
+
+用户明确要求换 skill 或换完整版时，按用户说的做（找到文件后按原版流程重跑）。**执行中升档需要补读对应文件、同样读不到时，按同一规则处理**。
+
+**读到原版文件的，按原版流程执行，本文件不包含任何流程实现**。
 
 ## 判断档位
 
