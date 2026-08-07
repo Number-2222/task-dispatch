@@ -32,6 +32,25 @@ description: 任务复杂度分析器与流程路由器。当用户给出一个�
 
 **问话配额：默认 0 到 1 个问题，最多 3 个。一次只问一个。每个问题都可跳过，用户不耐烦就停。**
 
+## 执行前置（必须完成，否则不开始任何档位动作）
+
+调用 read 工具，按顺序读取以下文件（如存在），读取后按对应内容执行：
+
+1. `C:\Users\AAA\.hanako\skills\grill-me\SKILL.md` 或项目级 `.claude/skills/grill-me/SKILL.md`
+2. `C:\Users\AAA\.hanako\skills\grilling\SKILL.md` 或项目级 `.claude/skills/grilling/SKILL.md`
+
+判断档位为大型档时追加读取：
+
+3. `C:\Users\AAA\.hanako\skills\grill-with-docs\SKILL.md`（有代码库时）
+4. `C:\Users\AAA\.hanako\skills\to-spec\SKILL.md`
+5. `C:\Users\AAA\.hanako\skills\to-tickets\SKILL.md`
+
+判断档位为模糊巨大档或大型档路径模糊时追加读取：
+
+6. `C:\Users\AAA\.hanako\skills\wayfinder\SKILL.md`
+
+读不到的跳过（对应档位的兜底见下）。**读到原版文件的，按原版流程执行，本文件不包含任何流程实现**。
+
 ## 判断档位
 
 ### 原理：检查点理论（大任务先对齐，小任务做完看）
